@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  MacOS-13:
+  Java11-MacOS:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: macOS-13
     timeout-minutes: 9
@@ -18,11 +18,11 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: 21
+          java-version: 11
       - uses: actions/checkout@v4
       - run: ./gradlew run --console=plain
 
-  MacOS-14:
+  Java17-MacOS:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: macOS-14
     timeout-minutes: 9
@@ -30,11 +30,11 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: 21
+          java-version: 17
       - uses: actions/checkout@v4
       - run: ./gradlew run --console=plain
 
-  Windows:
+  Java21-Windows:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: windows-2022
     timeout-minutes: 9
@@ -47,7 +47,7 @@ jobs:
       - run: ./gradlew run --console=plain
         shell: bash
 
-  Linux:
+  Java22-Linux:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: ubuntu-24.04
     timeout-minutes: 9
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: 21
+          java-version: 22
       - uses: actions/checkout@v4
       - uses: gradle/actions/wrapper-validation@v3
       - run: ./gradlew run --console=plain
