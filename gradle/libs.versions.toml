@@ -1,0 +1,17 @@
+## catalog of libraries and plugins used to build the snap-jolt project
+
+[versions]
+
+jolt-jni = "0.3.2"
+
+[libraries]
+
+jolt-jni-linux64 = { module = "com.github.stephengold:jolt-jni-Linux64", version.ref = "jolt-jni" }
+jolt-jni-macosx64 = { module = "com.github.stephengold:jolt-jni-MacOSX64", version.ref = "jolt-jni" }
+jolt-jni-macosxarm64 = { module = "com.github.stephengold:jolt-jni-MacOSX_ARM64", version.ref = "jolt-jni" }
+jolt-jni-windows64 = { module = "com.github.stephengold:jolt-jni-Windows64", version.ref = "jolt-jni" }
+jsnaploader = "io.github.electrostat-lab:snaploader:1.0.0-beta"
+
+[bundles]
+
+[plugins]
