@@ -10,7 +10,7 @@ jolt-jni-linux64 = { module = "com.github.stephengold:jolt-jni-Linux64", version
 jolt-jni-macosx64 = { module = "com.github.stephengold:jolt-jni-MacOSX64", version.ref = "jolt-jni" }
 jolt-jni-macosxarm64 = { module = "com.github.stephengold:jolt-jni-MacOSX_ARM64", version.ref = "jolt-jni" }
 jolt-jni-windows64 = { module = "com.github.stephengold:jolt-jni-Windows64", version.ref = "jolt-jni" }
-jsnaploader = "io.github.electrostat-lab:snaploader:1.0.0-beta"
+jsnaploader = "io.github.electrostat-lab:snaploader:1.0.0-gamma"
 
 [bundles]
 
