@@ -1,0 +1,56 @@
+---
+# GitHub Actions workflow for commits pushed to the jolt-jni repo - all branches
+
+name: CI at GitHub
+on: [push]
+
+jobs:
+  MacOS-13:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: macOS-13
+    timeout-minutes: 9
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - uses: actions/checkout@v4
+      - run: ./gradlew run --console=plain
+
+  MacOS-14:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: macOS-14
+    timeout-minutes: 9
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - uses: actions/checkout@v4
+      - run: ./gradlew run --console=plain
+
+  Windows:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: windows-2022
+    timeout-minutes: 9
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - uses: actions/checkout@v4
+      - run: ./gradlew run --console=plain
+        shell: bash
+
+  Linux:
+    if: contains(toJson(github.event.commits), '[ci skip] ') == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 21
+      - uses: actions/checkout@v4
+      - uses: gradle/actions/wrapper-validation@v3
+      - run: ./gradlew run --console=plain
