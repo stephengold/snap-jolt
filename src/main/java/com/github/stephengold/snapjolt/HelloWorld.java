@@ -34,6 +34,7 @@ import java.io.IOException;
  * Derived from HelloWorld/HelloWorld.cpp by Jorrit Rouwe.
  *
  * @author Stephen Gold sgold@sonic.net
+ * @author pavl_g (support for loading natives)
  */
 public class HelloWorld {
 // Layer that objects can be in, determines which other objects it can collide with
@@ -56,9 +57,18 @@ public class HelloWorld {
 // Program entry point
 public static void main(String[] argv)
 {
-        LibraryInfo info = new LibraryInfo(null, null, "joltjni", null);
-        NativeBinaryLoader loader = new NativeBinaryLoader(info);
-        NativeDynamicLibrary[] libraries = new NativeDynamicLibrary[] {
+	// compatible with Java 8, Since 1.7
+	// activate for external compressions
+	// final Path compression = Paths.get(PropertiesProvider.USER_DIR.getSystemProperty(), "libs", "jolt-jni.jar");
+	// formulate a platform-dependent extraction path
+	// final Path extractionPath = Paths.get(PropertiesProvider.USER_DIR.getSystemProperty(), "libs", NativeVariant.OS_NAME.getProperty(), 
+	// 				      NativeVariant.OS_ARCH.getProperty());
+
+	final Path extractionPath = Paths.get(PropertiesProvider.USER_DIR.getSystemProperty());
+	
+        final LibraryInfo info = new LibraryInfo(null, "lib/independent-placeholder", "joltjni", extractionPath);
+        final NativeBinaryLoader loader = new NativeBinaryLoader(info);
+        final NativeDynamicLibrary[] libraries = new NativeDynamicLibrary[] {
             new NativeDynamicLibrary("linux/x86-64/com/github/stephengold", PlatformPredicate.LINUX_X86_64),
             new NativeDynamicLibrary("osx/aarch64/com/github/stephengold", PlatformPredicate.MACOS_ARM_64),
             new NativeDynamicLibrary("osx/x86-64/com/github/stephengold", PlatformPredicate.MACOS_X86_64),
