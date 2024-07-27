@@ -70,7 +70,7 @@ public static void main(String[] argv)
 
 	final Path extractionPath = Paths.get(PropertiesProvider.USER_DIR.getSystemProperty());
 	
-        final LibraryInfo info = new LibraryInfo(null, "lib/independent-placeholder", "joltjni", extractionPath);
+        final LibraryInfo info = new LibraryInfo(null, "lib/independent-placeholder", "joltjni", extractionPath.toString());
         final NativeBinaryLoader loader = new NativeBinaryLoader(info);
         final NativeDynamicLibrary[] libraries = new NativeDynamicLibrary[] {
             new NativeDynamicLibrary("linux/x86-64/com/github/stephengold", PlatformPredicate.LINUX_X86_64),
