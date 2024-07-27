@@ -27,6 +27,9 @@ import electrostatic.snaploader.NativeBinaryLoader;
 import electrostatic.snaploader.platform.NativeDynamicLibrary;
 import electrostatic.snaploader.platform.util.PlatformPredicate;
 import java.io.IOException;
+import java.nio.Path;
+import java.nio.Paths;
+
 /**
  * A straightforward Java translation of the Jolt Physics "hello world" sample
  * application.
