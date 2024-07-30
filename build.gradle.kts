@@ -14,8 +14,8 @@ java {
 tasks.withType<JavaCompile>().all { // Java compile-time options:
     options.compilerArgs.add("-Xdiags:verbose")
     options.compilerArgs.add("-Xlint:unchecked")
-    options.setDeprecation(true) // to provide detailed deprecation warnings
     options.encoding = "UTF-8"
+    options.setDeprecation(true) // to provide detailed deprecation warnings
 }
 
 // Register tasks to run specific applications:
@@ -27,11 +27,11 @@ tasks.register<JavaExec>("HelloWorld") {
 
 val os = DefaultNativePlatform.getCurrentOperatingSystem()
 tasks.withType<JavaExec>().all { // Java runtime options:
+    classpath = sourceSets.main.get().getRuntimeClasspath()
+    enableAssertions = true
     if (os.isMacOsX()) {
         jvmArgs("-XstartOnFirstThread") // required for GLFW on macOS
     }
-    classpath = sourceSets.main.get().getRuntimeClasspath()
-    enableAssertions = true
 }
 
 application {
