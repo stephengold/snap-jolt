@@ -21,6 +21,7 @@ SOFTWARE.
  */
 package com.github.stephengold.snapjolt;
 import com.github.stephengold.joltjni.*;
+import com.github.stephengold.joltjni.enumerate.*;
 import electrostatic.snaploader.LibraryInfo;
 import electrostatic.snaploader.LoadingCriterion;
 import electrostatic.snaploader.NativeBinaryLoader;
