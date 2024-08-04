@@ -22,11 +22,11 @@ SOFTWARE.
 package com.github.stephengold.snapjolt;
 import com.github.stephengold.joltjni.*;
 import com.github.stephengold.joltjni.enumerate.*;
-import electrostatic.snaploader.LibraryInfo;
-import electrostatic.snaploader.LoadingCriterion;
-import electrostatic.snaploader.NativeBinaryLoader;
-import electrostatic.snaploader.platform.NativeDynamicLibrary;
-import electrostatic.snaploader.platform.util.PlatformPredicate;
+import electrostatic4j.snaploader.LibraryInfo;
+import electrostatic4j.snaploader.LoadingCriterion;
+import electrostatic4j.snaploader.NativeBinaryLoader;
+import electrostatic4j.snaploader.platform.NativeDynamicLibrary;
+import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 import java.io.IOException;
 /**
  * A straightforward Java translation of the Jolt Physics "hello world" sample
