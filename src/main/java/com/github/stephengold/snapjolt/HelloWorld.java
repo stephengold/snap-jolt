@@ -72,7 +72,7 @@ public static void main(String[] argv)
         loader.setRetryWithCleanExtraction(true);
         try {
             loader.loadLibrary(LoadingCriterion.INCREMENTAL_LOADING);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new IllegalStateException("Failed to load the joltjni library!");
         }
 
