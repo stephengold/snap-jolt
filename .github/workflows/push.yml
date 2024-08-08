@@ -57,5 +57,5 @@ jobs:
           distribution: 'zulu'
           java-version: 22
       - uses: actions/checkout@v4
-      - uses: gradle/actions/wrapper-validation@v3
+      - uses: gradle/actions/wrapper-validation@v4
       - run: ./gradlew run --console=plain
