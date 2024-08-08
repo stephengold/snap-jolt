@@ -20,14 +20,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 package com.github.stephengold.snapjolt;
+
 import com.github.stephengold.joltjni.*;
 import com.github.stephengold.joltjni.enumerate.*;
 import electrostatic4j.snaploader.LibraryInfo;
 import electrostatic4j.snaploader.LoadingCriterion;
 import electrostatic4j.snaploader.NativeBinaryLoader;
+import electrostatic4j.snaploader.filesystem.DirectoryPath;
 import electrostatic4j.snaploader.platform.NativeDynamicLibrary;
 import electrostatic4j.snaploader.platform.util.PlatformPredicate;
-import java.io.IOException;
+
 /**
  * A straightforward Java translation of the Jolt Physics "hello world" sample
  * application.
@@ -57,7 +59,8 @@ public class HelloWorld {
 // Program entry point
 public static void main(String[] argv)
 {
-        LibraryInfo info = new LibraryInfo(null, null, "joltjni", null);
+        LibraryInfo info = new LibraryInfo(new DirectoryPath("linux/x86-64/com/github/stephengold"),
+				"joltjni", DirectoryPath.USER_DIR);
         NativeBinaryLoader loader = new NativeBinaryLoader(info);
         NativeDynamicLibrary[] libraries = new NativeDynamicLibrary[] {
             new NativeDynamicLibrary("linux/aarch64/com/github/stephengold", PlatformPredicate.LINUX_ARM_64),
