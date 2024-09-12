@@ -54,3 +54,21 @@ dependencies {
 
     implementation(libs.jsnaploader)
 }
+
+// Register cleanup tasks:
+
+tasks.named("clean") {
+    dependsOn("cleanDLLs", "cleanDyLibs", "cleanLogs", "cleanSOs")
+}
+tasks.register<Delete>("cleanDLLs") { // extracted Windows native libraries
+    delete(fileTree(".").matching{ include("*.dll") })
+}
+tasks.register<Delete>("cleanDyLibs") { // extracted macOS native libraries
+    delete(fileTree(".").matching{ include("*.dylib") })
+}
+tasks.register<Delete>("cleanLogs") { // JVM crash logs
+    delete(fileTree(".").matching{ include("hs_err_pid*.log") })
+}
+tasks.register<Delete>("cleanSOs") { // extracted Linux and Android native libraries
+    delete(fileTree(".").matching{ include("*.so") })
+}
