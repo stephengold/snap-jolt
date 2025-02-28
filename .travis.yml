@@ -2,7 +2,7 @@
 # configure deployment and continuous integration at travis-ci.com
 
 arch: arm64
-dist: focal
+dist: jammy
 language: java
 os: linux
 
