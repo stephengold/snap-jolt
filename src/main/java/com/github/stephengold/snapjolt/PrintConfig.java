@@ -27,7 +27,7 @@ import electrostatic4j.snaploader.LoadingCriterion;
 import electrostatic4j.snaploader.NativeBinaryLoader;
 import electrostatic4j.snaploader.filesystem.DirectoryPath;
 import electrostatic4j.snaploader.platform.NativeDynamicLibrary;
-import electrostatic4j.snaploader.platform.util.NativeVariant;
+//import electrostatic4j.snaploader.platform.util.NativeVariant;
 import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 
 /**
@@ -36,21 +36,22 @@ import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 public class PrintConfig {
 
     public static void main(String[] argv) {
-        assert NativeVariant.Cpu.hasExtensions("avx");
-        assert NativeVariant.Cpu.hasExtensions("avx2");
-        assert NativeVariant.Cpu.hasExtensions("bmi1");
-        assert NativeVariant.Cpu.hasExtensions("f16c");
-        assert NativeVariant.Cpu.hasExtensions("fma");
-        assert NativeVariant.Cpu.hasExtensions("sse4_1");
-        assert NativeVariant.Cpu.hasExtensions("sse4_2");
+//        assert NativeVariant.Cpu.hasExtensions("avx");
+//        assert NativeVariant.Cpu.hasExtensions("avx2");
+//        assert NativeVariant.Cpu.hasExtensions("bmi1");
+//        assert NativeVariant.Cpu.hasExtensions("f16c");
+//        assert NativeVariant.Cpu.hasExtensions("fma");
+//        assert NativeVariant.Cpu.hasExtensions("sse4_1");
+//        assert NativeVariant.Cpu.hasExtensions("sse4_2");
 
-        assert NativeVariant.Cpu.hasExtensions(
-                "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
+//        assert NativeVariant.Cpu.hasExtensions(
+//                "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
 
         PlatformPredicate linuxWithFma = new PlatformPredicate(
                 PlatformPredicate.LINUX_X86_64.evaluatePredicate()
-                && NativeVariant.Cpu.hasExtensions(
-                        "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2"));
+//                && NativeVariant.Cpu.hasExtensions(
+//                        "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2")
+        );
 
         LibraryInfo info = new LibraryInfo(
                 new DirectoryPath("linux/x86-64/com/github/stephengold"),
