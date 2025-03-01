@@ -13,6 +13,7 @@ jolt-jni-macosx64 = { module = "com.github.stephengold:jolt-jni-MacOSX64", versi
 jolt-jni-macosxarm64 = { module = "com.github.stephengold:jolt-jni-MacOSX_ARM64", version.ref = "jolt-jni" }
 jolt-jni-windows64 = { module = "com.github.stephengold:jolt-jni-Windows64", version.ref = "jolt-jni" }
 jsnaploader = "io.github.electrostat-lab:snaploader:1.0.0-stable"
+log4j-impl = "org.apache.logging.log4j:log4j-slf4j2-impl:2.24.3"
 
 [bundles]
 

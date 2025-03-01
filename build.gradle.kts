@@ -53,6 +53,7 @@ dependencies {
     runtimeOnly(variantOf(libs.jolt.jni.windows64){ classifier(btf) })
 
     implementation(libs.jsnaploader)
+    implementation(libs.log4j.impl)
 }
 
 // Register cleanup tasks:
