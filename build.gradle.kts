@@ -24,6 +24,10 @@ tasks.register<JavaExec>("HelloWorld") {
     description = "Runs the HelloWorld app."
     mainClass = "com.github.stephengold.snapjolt.HelloWorld"
 }
+tasks.register<JavaExec>("PrintConfig") {
+    description = "Runs the PrintConfig app."
+    mainClass = "com.github.stephengold.snapjolt.PrintConfig"
+}
 
 val os = DefaultNativePlatform.getCurrentOperatingSystem()
 tasks.withType<JavaExec>().all { // Java runtime options:
