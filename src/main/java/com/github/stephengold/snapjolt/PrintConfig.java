@@ -52,6 +52,9 @@ public class PrintConfig {
         PlatformPredicate linuxWithFma = new PlatformPredicate(
                 PlatformPredicate.LINUX_X86_64,
                 "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
+        PlatformPredicate windowsWithAvx2 = new PlatformPredicate(
+                PlatformPredicate.WIN_X86_64,
+                "avx", "avx2", "sse4_1", "sse4_2");
 
         LibraryInfo info = new LibraryInfo(
                 new DirectoryPath("linux/x86-64/com/github/stephengold"),
@@ -64,6 +67,7 @@ public class PrintConfig {
             new NativeDynamicLibrary("linux/x86-64/com/github/stephengold", PlatformPredicate.LINUX_X86_64),
             new NativeDynamicLibrary("osx/aarch64/com/github/stephengold", PlatformPredicate.MACOS_ARM_64),
             new NativeDynamicLibrary("osx/x86-64/com/github/stephengold", PlatformPredicate.MACOS_X86_64),
+            new NativeDynamicLibrary("linux/x86-64-avx2/com/github/stephengold", windowsWithAvx2), // must precede vanilla WIN_X86_64
             new NativeDynamicLibrary("windows/x86-64/com/github/stephengold", PlatformPredicate.WIN_X86_64)
         };
         loader.registerNativeLibraries(libraries).initPlatformLibrary();
