@@ -39,6 +39,7 @@ import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 final public class PrintConfig {
 
     public static void main(String[] argv) {
+        // Test for each of the relevant CPU features:
         System.out.println("avx    = " + NativeVariant.Cpu.hasExtensions("avx"));
         System.out.println("avx2   = " + NativeVariant.Cpu.hasExtensions("avx2"));
         System.out.println("bmi1   = " + NativeVariant.Cpu.hasExtensions("bmi1"));
@@ -47,11 +48,13 @@ final public class PrintConfig {
         System.out.println("sse4_1 = " + NativeVariant.Cpu.hasExtensions("sse4_1"));
         System.out.println("sse4_2 = " + NativeVariant.Cpu.hasExtensions("sse4_2"));
 
+        // Define a custom predicate for Linux with all 7 CPU features:
         PlatformPredicate linuxWithFma = new PlatformPredicate(
                 PlatformPredicate.LINUX_X86_64,
                 "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
         System.out.println("linuxWithFma    = " + linuxWithFma.evaluatePredicate());
 
+        // Define a custom predicate for Windows with 4 CPU features:
         PlatformPredicate windowsWithAvx2 = new PlatformPredicate(
                 PlatformPredicate.WIN_X86_64,
                 "avx", "avx2", "sse4_1", "sse4_2");
@@ -82,6 +85,7 @@ final public class PrintConfig {
         }
         System.err.flush();
 
+        // Invoke native code to obtain the configuration of the native library:
         String configuration = Jolt.getConfigurationString();
         /*
          * Depending which native library was loaded, the configuration string
