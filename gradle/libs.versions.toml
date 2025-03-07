@@ -2,7 +2,7 @@
 
 [versions]
 
-jolt-jni = "0.9.6"
+jolt-jni = "0.9.7"
 
 [libraries]
 
