@@ -10,7 +10,7 @@ jobs:
   include:
     - script:
         - date
-        - ./gradlew run --console=plain --stacktrace
+        - ./gradlew PrintConfig HelloWorld --console=plain
 
 addons:
   apt:
