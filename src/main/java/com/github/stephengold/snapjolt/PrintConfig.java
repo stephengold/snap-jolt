@@ -36,7 +36,7 @@ import electrostatic4j.snaploader.platform.util.PlatformPredicate;
  *
  * @author Stephen Gold sgold@sonic.net
  */
-public class PrintConfig {
+final public class PrintConfig {
 
     public static void main(String[] argv) {
         System.out.println("avx    = " + NativeVariant.Cpu.hasExtensions("avx"));
