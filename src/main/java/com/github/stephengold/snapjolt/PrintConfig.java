@@ -69,7 +69,7 @@ public class PrintConfig {
             new NativeDynamicLibrary("linux/x86-64/com/github/stephengold", PlatformPredicate.LINUX_X86_64),
             new NativeDynamicLibrary("osx/aarch64/com/github/stephengold", PlatformPredicate.MACOS_ARM_64),
             new NativeDynamicLibrary("osx/x86-64/com/github/stephengold", PlatformPredicate.MACOS_X86_64),
-            new NativeDynamicLibrary("windows/x86-64-avx2/com/github/stephengol", windowsWithAvx2), // must precede vanilla WIN_X86_64
+            new NativeDynamicLibrary("windows/x86-64-avx2/com/github/stephengold", windowsWithAvx2), // must precede vanilla WIN_X86_64
             new NativeDynamicLibrary("windows/x86-64/com/github/stephengold", PlatformPredicate.WIN_X86_64)
         };
         loader.registerNativeLibraries(libraries).initPlatformLibrary();
