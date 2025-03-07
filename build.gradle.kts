@@ -60,6 +60,7 @@ dependencies {
 
     implementation(libs.jsnaploader)
     implementation(libs.log4j.impl)
+    implementation(libs.oshi.core)
 }
 
 // Register cleanup tasks:
