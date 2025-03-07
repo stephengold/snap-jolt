@@ -83,6 +83,20 @@ public class PrintConfig {
         System.err.flush();
 
         String configuration = Jolt.getConfigurationString();
+        /*
+         * Depending which native library was loaded, the configuration string
+         * should be one of the following:
+         *
+         * On LINUX_X86_64 platforms, either
+         *  Single precision x86 64-bit with instructions: SSE2 SSE4.1 SSE4.2 AVX AVX2 F16C LZCNT TZCNT FMADD (Debug Renderer) (16-bit ObjectLayer) (Assertions) (ObjectStream) (Debug) (C++ RTTI) (C++ Exceptions)
+         * or
+         *  Single precision x86 64-bit with instructions: SSE2 (Debug Renderer) (16-bit ObjectLayer) (Assertions) (ObjectStream) (Debug) (C++ RTTI) (C++ Exceptions)
+         *
+         * On WIN_X86_64 platforms, either
+         *  Single precision x86 64-bit with instructions: SSE2 SSE4.1 SSE4.2 AVX AVX2 F16C LZCNT TZCNT (FP Exceptions) (Debug Renderer) (16-bit ObjectLayer) (Assertions) (ObjectStream) (Debug) (C++ RTTI) (C++ Exceptions)
+         * or
+         *  Single precision x86 64-bit with instructions: SSE2 (FP Exceptions) (Debug Renderer) (16-bit ObjectLayer) (Assertions) (ObjectStream) (Debug) (C++ RTTI) (C++ Exceptions)
+         */
         System.out.println(configuration);
     }
 }
