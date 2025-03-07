@@ -20,7 +20,7 @@ jobs:
           distribution: 'zulu'
           java-version: 11
       - uses: actions/checkout@v4
-      - run: ./gradlew run --console=plain
+      - run: ./gradlew PrintConfig HelloWorld --console=plain
 
   Java17-MacOS:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
@@ -32,7 +32,7 @@ jobs:
           distribution: 'zulu'
           java-version: 17
       - uses: actions/checkout@v4
-      - run: ./gradlew run --console=plain
+      - run: ./gradlew PrintConfig HelloWorld --console=plain
 
   Java21-Windows:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
@@ -44,7 +44,7 @@ jobs:
           distribution: 'zulu'
           java-version: 21
       - uses: actions/checkout@v4
-      - run: ./gradlew run --console=plain
+      - run: ./gradlew PrintConfig HelloWorld --console=plain
         shell: bash
 
   Java23-Linux:
@@ -58,4 +58,4 @@ jobs:
           java-version: 23
       - uses: actions/checkout@v4
       - uses: gradle/actions/wrapper-validation@v4
-      - run: ./gradlew run --console=plain
+      - run: ./gradlew PrintConfig HelloWorld --console=plain
