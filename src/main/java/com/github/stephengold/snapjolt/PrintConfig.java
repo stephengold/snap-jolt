@@ -27,6 +27,7 @@ import electrostatic4j.snaploader.LoadingCriterion;
 import electrostatic4j.snaploader.NativeBinaryLoader;
 import electrostatic4j.snaploader.filesystem.DirectoryPath;
 import electrostatic4j.snaploader.platform.NativeDynamicLibrary;
+import electrostatic4j.snaploader.platform.util.NativeVariant;
 import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 
 /**
@@ -38,23 +39,24 @@ import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 public class PrintConfig {
 
     public static void main(String[] argv) {
-//        assert NativeVariant.Cpu.hasExtensions("avx");
-//        assert NativeVariant.Cpu.hasExtensions("avx2");
-//        assert NativeVariant.Cpu.hasExtensions("bmi1");
-//        assert NativeVariant.Cpu.hasExtensions("f16c");
-//        assert NativeVariant.Cpu.hasExtensions("fma");
-//        assert NativeVariant.Cpu.hasExtensions("sse4_1");
-//        assert NativeVariant.Cpu.hasExtensions("sse4_2");
-
-//        assert NativeVariant.Cpu.hasExtensions(
-//                "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
+        System.out.println("avx    = " + NativeVariant.Cpu.hasExtensions("avx"));
+        System.out.println("avx2   = " + NativeVariant.Cpu.hasExtensions("avx2"));
+        System.out.println("bmi1   = " + NativeVariant.Cpu.hasExtensions("bmi1"));
+        System.out.println("f16c   = " + NativeVariant.Cpu.hasExtensions("f16c"));
+        System.out.println("fma    = " + NativeVariant.Cpu.hasExtensions("fma"));
+        System.out.println("sse4_1 = " + NativeVariant.Cpu.hasExtensions("sse4_1"));
+        System.out.println("sse4_2 = " + NativeVariant.Cpu.hasExtensions("sse4_2"));
 
         PlatformPredicate linuxWithFma = new PlatformPredicate(
                 PlatformPredicate.LINUX_X86_64,
                 "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
+        System.out.println("linuxWithFma    = " + linuxWithFma.evaluatePredicate());
+
         PlatformPredicate windowsWithAvx2 = new PlatformPredicate(
                 PlatformPredicate.WIN_X86_64,
                 "avx", "avx2", "sse4_1", "sse4_2");
+        System.out.println("windowsWithAvx2 = " + windowsWithAvx2.evaluatePredicate());
+        System.out.flush();
 
         LibraryInfo info = new LibraryInfo(
                 new DirectoryPath("linux/x86-64/com/github/stephengold"),
