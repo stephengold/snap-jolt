@@ -27,10 +27,12 @@ import electrostatic4j.snaploader.LoadingCriterion;
 import electrostatic4j.snaploader.NativeBinaryLoader;
 import electrostatic4j.snaploader.filesystem.DirectoryPath;
 import electrostatic4j.snaploader.platform.NativeDynamicLibrary;
-//import electrostatic4j.snaploader.platform.util.NativeVariant;
 import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 
 /**
+ * Select between native libraries based which ISA extensions the current CPUs
+ * support.
+ *
  * @author Stephen Gold sgold@sonic.net
  */
 public class PrintConfig {
@@ -48,10 +50,8 @@ public class PrintConfig {
 //                "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
 
         PlatformPredicate linuxWithFma = new PlatformPredicate(
-                PlatformPredicate.LINUX_X86_64.evaluatePredicate()
-//                && NativeVariant.Cpu.hasExtensions(
-//                        "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2")
-        );
+                PlatformPredicate.LINUX_X86_64,
+                "avx", "avx2", "bmi1", "f16c", "fma", "sse4_1", "sse4_2");
 
         LibraryInfo info = new LibraryInfo(
                 new DirectoryPath("linux/x86-64/com/github/stephengold"),
@@ -60,7 +60,7 @@ public class PrintConfig {
         NativeDynamicLibrary[] libraries = {
             new NativeDynamicLibrary("linux/aarch64/com/github/stephengold", PlatformPredicate.LINUX_ARM_64),
             new NativeDynamicLibrary("linux/armhf/com/github/stephengold", PlatformPredicate.LINUX_ARM_32),
-            new NativeDynamicLibrary("linux/x86-64-fma/com/github/stephengold", linuxWithFma),
+            new NativeDynamicLibrary("linux/x86-64-fma/com/github/stephengold", linuxWithFma), // must precede vanilla LINUX_X86_64
             new NativeDynamicLibrary("linux/x86-64/com/github/stephengold", PlatformPredicate.LINUX_X86_64),
             new NativeDynamicLibrary("osx/aarch64/com/github/stephengold", PlatformPredicate.MACOS_ARM_64),
             new NativeDynamicLibrary("osx/x86-64/com/github/stephengold", PlatformPredicate.MACOS_X86_64),
