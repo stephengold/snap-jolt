@@ -128,9 +128,10 @@ public static void main(String[] argv)
 
 	// Create mapping table from object layer to broadphase layer
 	// Note: As this is an interface, PhysicsSystem will take a reference to this so this instance needs to stay alive!
-	MapObj2Bp broad_phase_layer_interface = new MapObj2Bp(OBJ_NUM_LAYERS, BP_NUM_LAYERS)
-	.add(OBJ_LAYER_NON_MOVING, BP_LAYER_NON_MOVING)
-	.add(OBJ_LAYER_MOVING, BP_LAYER_MOVING);
+	BroadPhaseLayerInterface broad_phase_layer_interface
+                = new BroadPhaseLayerInterfaceTable(OBJ_NUM_LAYERS, BP_NUM_LAYERS)
+                        .mapObjectToBroadPhaseLayer(OBJ_LAYER_NON_MOVING, BP_LAYER_NON_MOVING)
+                        .mapObjectToBroadPhaseLayer(OBJ_LAYER_MOVING, BP_LAYER_NON_MOVING);
 
 	// Create class that filters object vs broadphase layers
 	// Note: As this is an interface, PhysicsSystem will take a reference to this so this instance needs to stay alive!
@@ -171,7 +172,7 @@ public static void main(String[] argv)
 	// Now create a dynamic body to bounce on the floor
 	// Note that this uses the shorthand version of creating and adding a body to the world
 	BodyCreationSettings sphere_settings = new BodyCreationSettings(new SphereShape(0.5f), new RVec3(0f, 2f, 0f), new Quat(), EMotionType.Dynamic, OBJ_LAYER_MOVING);
-	BodyId sphere_id = body_interface.createAndAddBody(sphere_settings, EActivation.Activate).copy();
+	int sphere_id = body_interface.createAndAddBody(sphere_settings, EActivation.Activate);
 
 	// Now you can interact with the dynamic body, in this case we're going to give it a velocity.
 	// (note that if we had used CreateBody then we could have set the velocity straight on the body before adding it to the physics system)
