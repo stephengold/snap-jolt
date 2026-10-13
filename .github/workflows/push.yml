@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-26.04-arm
     timeout-minutes: 9
     steps:
-      - uses: aactions/setup-java@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'liberica'
           java-version: '25'
