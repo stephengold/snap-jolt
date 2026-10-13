@@ -1,5 +1,5 @@
 ---
-# GitHub Actions workflow for commits pushed to the jolt-jni repo - "master" branch
+# GitHub Actions workflow for commits pushed to the snap-jolt repo - "master" branch
 
 name: CI at GitHub
 on:
