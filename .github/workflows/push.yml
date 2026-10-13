@@ -12,7 +12,7 @@ on:
 jobs:
   Java11-MacOS:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
-    runs-on: macOS-13
+    runs-on: macos-26
     timeout-minutes: 9
     steps:
       - uses: actions/setup-java@v4
@@ -24,7 +24,7 @@ jobs:
 
   Java17-MacOS:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
-    runs-on: macOS-14
+    runs-on: macOS-26-intel
     timeout-minutes: 9
     steps:
       - uses: actions/setup-java@v4
@@ -36,7 +36,7 @@ jobs:
 
   Java21-Windows:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
-    runs-on: windows-2022
+    runs-on: windows-2025
     timeout-minutes: 9
     steps:
       - uses: actions/setup-java@v4
@@ -49,7 +49,7 @@ jobs:
 
   Java23-Linux:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 9
     steps:
       - uses: actions/setup-java@v4
