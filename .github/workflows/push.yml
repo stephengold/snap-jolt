@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  Java11-MacOS:
+  Java17-MacOSX_ARM64:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: macos-26
     timeout-minutes: 9
@@ -18,11 +18,11 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: '17'
       - uses: actions/checkout@v7
       - run: ./gradlew PrintConfig HelloWorld --console=plain
 
-  Java17-MacOS:
+  Java21-MacOSX64:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: macOS-26-intel
     timeout-minutes: 9
@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-java@v6
         with:
           distribution: 'zulu'
-          java-version: 17
+          java-version: '21'
       - uses: actions/checkout@v7
       - run: ./gradlew PrintConfig HelloWorld --console=plain
 
