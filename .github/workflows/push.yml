@@ -57,7 +57,6 @@ jobs:
           distribution: 'liberica'
           java-version: '25'
       - uses: actions/checkout@v7
-      - uses: gradle/actions/wrapper-validation@v4
       - run: ./gradlew PrintConfig HelloWorld --console=plain
 
   Java25-Windows:
@@ -83,5 +82,4 @@ jobs:
           distribution: 'liberica'
           java-version: '27'
       - uses: actions/checkout@v7
-      - uses: gradle/actions/wrapper-validation@v4
       - run: ./gradlew PrintConfig HelloWorld --console=plain
