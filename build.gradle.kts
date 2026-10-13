@@ -57,6 +57,7 @@ dependencies {
     runtimeOnly(variantOf(libs.jolt.jni.macosxarm64){ classifier(btf) })
     runtimeOnly(variantOf(libs.jolt.jni.windows64){ classifier(btf) })
     runtimeOnly(variantOf(libs.jolt.jni.windows64avx2){ classifier(btf) })
+    runtimeOnly(variantOf(libs.jolt.jni.windowsarm64){ classifier(btf) })
 
     implementation(libs.jsnaploader)
     implementation(libs.log4j.impl)
