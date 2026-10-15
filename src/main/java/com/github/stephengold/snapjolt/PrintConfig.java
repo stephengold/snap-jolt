@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Stephen Gold
+Copyright (c) 2025-2026 Stephen Gold
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -39,6 +39,9 @@ import electrostatic4j.snaploader.platform.util.PlatformPredicate;
 final public class PrintConfig {
 
     public static void main(String[] argv) {
+        System.out.println("Techdemo module: " + PrintConfig.class.getModule());
+        System.out.println("SnapLoader module: " + NativeBinaryLoader.class.getModule());
+
         // Test for each of the relevant CPU features:
         System.out.println("avx    = " + NativeVariant.Cpu.hasExtensions("avx"));
         System.out.println("avx2   = " + NativeVariant.Cpu.hasExtensions("avx2"));
