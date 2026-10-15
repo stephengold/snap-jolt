@@ -7,6 +7,7 @@ plugins {
 }
 
 java {
+    modularity.inferModulePath = true
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
@@ -36,10 +37,12 @@ tasks.withType<JavaExec>().all { // Java runtime options:
     if (os.isMacOsX()) {
         jvmArgs("-XstartOnFirstThread") // required for GLFW on macOS
     }
+    mainModule = "com.github.stephengold.snapjolt"
 }
 
 application {
     mainClass = "com.github.stephengold.snapjolt.HelloWorld"
+    mainModule = "com.github.stephengold.snapjolt"
 }
 
 configurations.all {
