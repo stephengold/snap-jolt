@@ -37,12 +37,7 @@ tasks.withType<JavaExec>().all { // Java runtime options:
     jvmArgs("--enable-native-access=com.github.stephengold.joltjni,electrostatic4j.snaploader")
     if (os.isMacOsX()) {
         jvmArgs("-XstartOnFirstThread") // required for GLFW on macOS
-    }
-    mainModule = "com.github.stephengold.snapjolt"
 }
-
-application {
-    mainClass = "com.github.stephengold.snapjolt.HelloWorld"
     mainModule = "com.github.stephengold.snapjolt"
 }
 
