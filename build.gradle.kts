@@ -34,10 +34,10 @@ val os = DefaultNativePlatform.getCurrentOperatingSystem()
 tasks.withType<JavaExec>().all { // Java runtime options:
     classpath = sourceSets.main.get().getRuntimeClasspath()
     enableAssertions = true
-    jvmArgs("--enable-native-access=com.github.stephengold.joltjni,electrostatic4j.snaploader")
+    jvmArgs("--enable-native-access=com.github.stephengold.joltjni,electrostatic4j.snaploader,com.sun.jna")
     if (os.isMacOsX()) {
         jvmArgs("-XstartOnFirstThread") // required for GLFW on macOS
-}
+    }
     mainModule = "com.github.stephengold.snapjolt"
 }
 
